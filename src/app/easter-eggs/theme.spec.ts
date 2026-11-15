@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { LODGE_STORAGE_KEY, Theme } from './theme';
+import { BROWSER_BAR, LODGE_STORAGE_KEY, Theme } from './theme';
 
 describe('Theme', () => {
   beforeEach(() => {
@@ -20,5 +20,16 @@ describe('Theme', () => {
 
     TestBed.resetTestingModule();
     expect(TestBed.inject(Theme).lodge()).toBe('white');
+  });
+
+  it('tints the phone’s browser bar to match', () => {
+    const meta = document.head.appendChild(document.createElement('meta'));
+    meta.name = 'theme-color';
+    const theme = TestBed.inject(Theme);
+    expect(meta.content).toBe(BROWSER_BAR.black);
+
+    theme.toggle();
+    expect(meta.content).toBe(BROWSER_BAR.white);
+    meta.remove();
   });
 });

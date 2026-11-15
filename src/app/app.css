@@ -33,9 +33,9 @@ main:focus {
   align-items: center;
   gap: 0.75rem 1.5rem;
   padding: 0.6rem 1rem;
-  border-bottom: 1px solid #2a1c19;
-  background: #0b0808;
-  color: #efe4cc;
+  border-bottom: 1px solid var(--header-border);
+  background: var(--header-bg);
+  color: var(--header-text);
 }
 
 .brand {
@@ -55,15 +55,15 @@ main:focus {
 .brand-title {
   font: 700 1.35rem/1 var(--font-serif);
   letter-spacing: 0.04em;
-  color: var(--title-mint);
-  text-shadow: 0 0 10px rgb(168 220 174 / 0.45);
+  color: var(--brand-title);
+  text-shadow: var(--brand-glow);
 }
 
 .brand-sub {
   font: 700 0.62rem/1.6 var(--font-sans);
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: #b9ab90;
+  color: var(--brand-sub);
 }
 
 /* On small screens the nav gets its own row and scrolls sideways. */
@@ -82,18 +82,18 @@ main:focus {
 .site-nav a {
   padding: 0.45rem 0.7rem;
   border-radius: 6px;
-  color: #d9ccb2;
+  color: var(--nav-text);
   text-decoration: none;
   font: 600 0.92rem/1.2 var(--font-sans);
 }
 
 .site-nav a:hover {
-  background: #1d1514;
-  color: #fff;
+  background: var(--nav-hover-bg);
+  color: var(--nav-hover-text);
 }
 
 .site-nav a.active {
-  background: #6f1216;
+  background: var(--nav-active-bg);
   color: #fff;
 }
 
@@ -101,16 +101,16 @@ main:focus {
   order: 2;
   margin-left: auto;
   padding: 0.45rem 0.8rem;
-  border: 1px solid #4a3530;
+  border: 1px solid var(--toggle-border);
   border-radius: 999px;
-  background: #151010;
-  color: #efe4cc;
+  background: var(--toggle-bg);
+  color: var(--header-text);
   font: 600 0.8rem/1.2 var(--font-sans);
   cursor: pointer;
 }
 
 .lodge-toggle:hover {
-  border-color: #8a6a5f;
+  border-color: var(--toggle-border-hover);
 }
 
 .toggle-prefix {
@@ -231,6 +231,21 @@ main:focus {
 .footer-text .hint {
   margin-top: 0.6rem;
   font-style: italic;
+  color: #a8dcae;
+}
+
+.footer-text .credit {
+  margin-top: 0.6rem;
+  font: 600 0.85rem/1.4 var(--font-sans);
+  letter-spacing: 0.04em;
+}
+
+.footer-text .credit a {
+  color: #efe4cc;
+  text-underline-offset: 3px;
+}
+
+.footer-text .credit a:hover {
   color: #a8dcae;
 }
 

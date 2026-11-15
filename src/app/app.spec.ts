@@ -60,6 +60,17 @@ describe('App', () => {
     toggle.click();
   });
 
+  it('credits walkingkindle in the footer', async () => {
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    const credit = (fixture.nativeElement as HTMLElement).querySelector<HTMLAnchorElement>(
+      '.site-footer .credit a',
+    )!;
+
+    expect(credit.textContent?.trim()).toBe('walkingkindle');
+    expect(credit.href).toBe('https://github.com/walkingkindle');
+  });
+
   it('sends unknown addresses to the Red Room', async () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/fire-walk-with-you');

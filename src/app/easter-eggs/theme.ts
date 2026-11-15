@@ -5,6 +5,9 @@ export type Lodge = 'black' | 'white';
 
 export const LODGE_STORAGE_KEY = 'twin-peaks-lodge';
 
+/** Phones tint their browser bar with the page's theme-color, so it switches with the header. */
+export const BROWSER_BAR: Record<Lodge, string> = { black: '#0c0909', white: '#fffaf0' };
+
 @Injectable({ providedIn: 'root' })
 export class Theme {
   private readonly document = inject(DOCUMENT);
@@ -23,6 +26,9 @@ export class Theme {
   private apply(lodge: Lodge): void {
     this.current.set(lodge);
     this.document.documentElement.dataset['lodge'] = lodge;
+    this.document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute('content', BROWSER_BAR[lodge]);
     try {
       localStorage.setItem(LODGE_STORAGE_KEY, lodge);
     } catch {

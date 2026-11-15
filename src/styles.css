@@ -38,6 +38,21 @@
   --zz-light: #ece3cc;
   --card-shadow: 0 18px 40px -28px rgb(0 0 0 / 0.95);
 
+  /* The header follows the Lodge, so switching is visible on a phone's first screen. */
+  --header-bg: #0b0808;
+  --header-border: #2a1c19;
+  --header-text: #efe4cc;
+  --brand-title: var(--title-mint);
+  --brand-glow: 0 0 10px rgb(168 220 174 / 0.45);
+  --brand-sub: #b9ab90;
+  --nav-text: #d9ccb2;
+  --nav-hover-bg: #1d1514;
+  --nav-hover-text: #fff;
+  --nav-active-bg: #6f1216;
+  --toggle-bg: #151010;
+  --toggle-border: #4a3530;
+  --toggle-border-hover: #8a6a5f;
+
   --curtain-band: repeating-linear-gradient(
     90deg,
     #6d1013 0 6px,
@@ -57,13 +72,14 @@
 }
 
 :root[data-lodge='white'] {
-  color-scheme: light;
+  /* `only` stops Chrome's "darken websites" mode from repainting the White Lodge dark. */
+  color-scheme: only light;
 
   --bg: #f4ecda;
   --surface: #fffaf0;
   --surface-2: #f8f0df;
   --text: #2b1b16;
-  --muted: #5e4b40;
+  --muted: #4d3c32;
   --border: #e2d2b3;
   --border-strong: #c9b38f;
   --accent: #a3242a;
@@ -83,6 +99,20 @@
   --zz-dark: #1a1414;
   --zz-light: #f4ecda;
   --card-shadow: 0 18px 40px -30px rgb(80 50 20 / 0.5);
+
+  --header-bg: #fffaf0;
+  --header-border: #e2d2b3;
+  --header-text: #2b1b16;
+  --brand-title: #2f6b42;
+  --brand-glow: none;
+  --brand-sub: #6b5748;
+  --nav-text: #4d3c32;
+  --nav-hover-bg: #f3e8d2;
+  --nav-hover-text: #2b1b16;
+  --nav-active-bg: #a3242a;
+  --toggle-bg: #f8f0df;
+  --toggle-border: #c9b38f;
+  --toggle-border-hover: #a3242a;
 }
 
 *,
