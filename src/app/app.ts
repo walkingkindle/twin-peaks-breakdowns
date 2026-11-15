@@ -20,4 +20,13 @@ export class App {
   protected readonly sections = SECTION_LINKS;
   protected readonly eggs = inject(EasterEggs);
   protected readonly theme = inject(Theme);
+
+  /** On phones the nav scrolls sideways, so centre the current section’s link if it’s cut off. */
+  protected reveal(nav: HTMLElement, link: HTMLElement): void {
+    const strip = nav.getBoundingClientRect();
+    const box = link.getBoundingClientRect();
+    if (box.left < strip.left || box.right > strip.right) {
+      nav.scrollBy({ left: box.left + box.width / 2 - (strip.left + strip.width / 2) });
+    }
+  }
 }

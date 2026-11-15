@@ -157,19 +157,28 @@ export const SEASON_2: Section = {
           sources: ['main', 'followUp'],
         },
         {
+          title: 'A man named Harold Smith',
+          moment: 'Laura’s Meals on Wheels route points Donna toward a man named Harold Smith.',
+          reading:
+            'Lynch starts the storyline that becomes the show’s most direct warning against closure: a man who lives on Laura’s story, and dies when it is taken from him.',
+          sources: ['followUp'],
+        },
+        {
+          title: 'Read the instructions first',
+          moment:
+            'At Ronette’s bedside, Cooper and Harry can’t lower their stools until Harry reads the label aloud. Then they show her the sketches, and at Bob’s face she smashes the lamp.',
+          quote: 'Stop. Read operating instructions beneath seat before using.',
+          reading:
+            'Not every chair matters, but Lynch stops the scene for this one, and it isn’t in the draft script. It is the method in miniature: watch what he emphasises, read the words literally, be patient — to lower the seat, first pull it all the way up. Then Ronette sees the killer and smashes the light: an open investigation shines light, and an answer puts it out.',
+          sources: ['applied'],
+        },
+        {
           title: 'Messages from deep space',
           moment:
             'Major Briggs explains his work maintaining deep-space monitors aimed at the galaxies.',
           reading:
             'If Gordon Cole is Lynch, Twin Perfect’s bet for Mark Frost’s stand-in is Major Briggs: a man who receives transmissions from beyond and translates them to the page, as Frost translated ideas into scripts.',
           sources: ['main'],
-        },
-        {
-          title: 'A man named Harold Smith',
-          moment: 'Laura’s Meals on Wheels route points Donna toward a man named Harold Smith.',
-          reading:
-            'Lynch starts the storyline that becomes the show’s most direct warning against closure: a man who lives on Laura’s story, and dies when it is taken from him.',
-          sources: ['followUp'],
         },
       ],
     },

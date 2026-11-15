@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { Router, provideRouter, withComponentInputBinding } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { App } from './app';
 import { routes } from './app.routes';
@@ -19,6 +19,30 @@ describe('App', () => {
 
     const links = [...nav.querySelectorAll('a')].map((link) => link.textContent?.trim());
     expect(links).toEqual(['Season 1', 'Season 2', 'Fire Walk With Me', 'The Return', 'The Key']);
+  });
+
+  it('scrolls the nav to the current section when it is cut off on a phone', async () => {
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    const nav = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('.site-nav')!;
+    const key = nav.querySelector<HTMLElement>('a:last-child')!;
+    // A 320px strip with The Key hidden past its right edge.
+    vi.spyOn(nav, 'getBoundingClientRect').mockReturnValue({
+      left: 0,
+      right: 320,
+      width: 320,
+    } as DOMRect);
+    vi.spyOn(key, 'getBoundingClientRect').mockReturnValue({
+      left: 500,
+      right: 580,
+      width: 80,
+    } as DOMRect);
+    nav.scrollBy = vi.fn();
+
+    await TestBed.inject(Router).navigateByUrl('/key');
+    await fixture.whenStable();
+
+    expect(nav.scrollBy).toHaveBeenCalledWith({ left: 380 });
   });
 
   it('opens the doors to the White Lodge', async () => {

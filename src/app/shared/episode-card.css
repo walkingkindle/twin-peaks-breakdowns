@@ -11,7 +11,14 @@
   border-radius: 10px;
   background: var(--surface);
   box-shadow: var(--card-shadow);
-  scroll-margin-top: 5.5rem;
+  /* Clears the jump list, which sticks to the top of the screen below 64rem. */
+  scroll-margin-top: 4.5rem;
+}
+
+@media (min-width: 64rem) {
+  .episode {
+    scroll-margin-top: 1.5rem;
+  }
 }
 
 /* A strip of Red Room curtain along the top edge. */
