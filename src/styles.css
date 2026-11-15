@@ -1,0 +1,209 @@
+/* Twin Peaks Breakdowns — global theme.
+   Default: the Black Lodge (dark). `html[data-lodge='white']`: the White Lodge (light). */
+
+:root {
+  color-scheme: dark;
+
+  --font-serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Fixed palette */
+  --curtain: #8f1b1f;
+  --title-mint: #a8dcae;
+  --gold: #d6ad52;
+
+  /* Theme tokens — Black Lodge */
+  --bg: #0c0909;
+  --surface: #161110;
+  --surface-2: #1d1615;
+  --text: #efe5cf;
+  --muted: #c4b69b;
+  --border: #33241f;
+  --border-strong: #4f3b34;
+  --accent: #e8605f;
+  --focus: #f3d36b;
+  --gold-text: #e2bb62;
+  --mint-text: #a8dcae;
+  --fir-accent: #4f8a63;
+  --fir-text: #8cc39d;
+  --coffee-accent: #c9925f;
+  --source-main: #f0898a;
+  --source-follow-up: #8cc39d;
+  --source-critics: #e2bb62;
+  --source-applied: #c4b69b;
+  --source-other: #9fb7e8;
+  --owl-body: #b8a07f;
+  --owl-eye: #e7c35a;
+  --zz-dark: #0c0909;
+  --zz-light: #ece3cc;
+  --card-shadow: 0 18px 40px -28px rgb(0 0 0 / 0.95);
+
+  --curtain-band: repeating-linear-gradient(
+    90deg,
+    #6d1013 0 6px,
+    #a3242a 6px 14px,
+    #7f161a 14px 20px
+  );
+  --curtain-folds:
+    repeating-linear-gradient(
+      90deg,
+      rgb(0 0 0 / 0.38) 0,
+      rgb(0 0 0 / 0) 22px,
+      rgb(255 255 255 / 0.07) 34px,
+      rgb(0 0 0 / 0) 46px,
+      rgb(0 0 0 / 0.38) 68px
+    ),
+    linear-gradient(180deg, #a7262b, #7b1418 55%, #4f0b0e);
+}
+
+:root[data-lodge='white'] {
+  color-scheme: light;
+
+  --bg: #f4ecda;
+  --surface: #fffaf0;
+  --surface-2: #f8f0df;
+  --text: #2b1b16;
+  --muted: #5e4b40;
+  --border: #e2d2b3;
+  --border-strong: #c9b38f;
+  --accent: #a3242a;
+  --focus: #a3242a;
+  --gold-text: #845f12;
+  --mint-text: #2f6b42;
+  --fir-accent: #3d7a52;
+  --fir-text: #2f6b42;
+  --coffee-accent: #8a5a2b;
+  --source-main: #a3242a;
+  --source-follow-up: #2f6b42;
+  --source-critics: #845f12;
+  --source-applied: #6b5748;
+  --source-other: #34548a;
+  --owl-body: #b8a07f;
+  --owl-eye: #e7c35a;
+  --zz-dark: #1a1414;
+  --zz-light: #f4ecda;
+  --card-shadow: 0 18px 40px -30px rgb(80 50 20 / 0.5);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 1.03rem/1.65 var(--font-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--curtain);
+  color: #fff;
+}
+
+/* The Red Room floor. */
+.zigzag {
+  --zz-size: 26px;
+  height: var(--zz-size);
+  background:
+    linear-gradient(135deg, var(--zz-light) 25%, transparent 25%) calc(var(--zz-size) / -2) 0,
+    linear-gradient(225deg, var(--zz-light) 25%, transparent 25%) calc(var(--zz-size) / -2) 0,
+    linear-gradient(315deg, var(--zz-light) 25%, transparent 25%),
+    linear-gradient(45deg, var(--zz-light) 25%, transparent 25%);
+  background-color: var(--zz-dark);
+  background-size: var(--zz-size) var(--zz-size);
+}
+
+/* Red Room curtains. */
+.curtain {
+  background: var(--curtain-folds);
+  color: #fbefe2;
+}
+
+.page-hero {
+  padding: clamp(2.75rem, 7vw, 4.75rem) 1rem clamp(2.25rem, 5vw, 3.5rem);
+  text-align: center;
+}
+
+.page-hero .eyebrow {
+  margin: 0;
+  font: 700 0.8rem/1 var(--font-sans);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.page-hero h1 {
+  margin: 0.35rem 0 0.9rem;
+  font: 700 clamp(2.4rem, 7vw, 4.2rem) / 1.08 var(--font-serif);
+  text-shadow: 0 3px 22px rgb(0 0 0 / 0.5);
+}
+
+.page-hero .intro {
+  max-width: 46rem;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* The glowing green title, a nod to the opening credits. */
+.tp-title {
+  font: 700 clamp(3.2rem, 11vw, 6.5rem) / 0.95 var(--font-serif);
+  letter-spacing: 0.04em;
+  color: var(--title-mint);
+  text-shadow:
+    0 0 6px rgb(168 220 174 / 0.55),
+    0 0 26px rgb(110 180 120 / 0.45),
+    0 4px 30px rgb(0 0 0 / 0.6);
+}
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid rgb(239 228 204 / 0.45);
+  border-radius: 999px;
+  color: #efe4cc;
+  background: rgb(12 9 9 / 0.4);
+  text-decoration: none;
+  font: 700 0.92rem/1 var(--font-sans);
+  letter-spacing: 0.03em;
+}
+
+.button:hover {
+  border-color: #efe4cc;
+}
+
+.button-primary {
+  border-color: transparent;
+  background: var(--curtain-band);
+  color: #fff4ea;
+  box-shadow: 0 10px 24px -14px rgb(0 0 0 / 0.9);
+}

@@ -1,0 +1,303 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+main:focus {
+  outline: none;
+}
+
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #2a1c19;
+  background: #0b0808;
+  color: #efe4cc;
+}
+
+.brand {
+  order: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.brand-link {
+  display: grid;
+  color: inherit;
+  text-decoration: none;
+  line-height: 1.05;
+}
+
+.brand-title {
+  font: 700 1.35rem/1 var(--font-serif);
+  letter-spacing: 0.04em;
+  color: var(--title-mint);
+  text-shadow: 0 0 10px rgb(168 220 174 / 0.45);
+}
+
+.brand-sub {
+  font: 700 0.62rem/1.6 var(--font-sans);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #b9ab90;
+}
+
+/* On small screens the nav gets its own row and scrolls sideways. */
+.site-nav {
+  order: 3;
+  display: flex;
+  flex-basis: 100%;
+  gap: 0.25rem;
+  margin: 0 -1rem;
+  padding: 0 1rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.site-nav a {
+  padding: 0.45rem 0.7rem;
+  border-radius: 6px;
+  color: #d9ccb2;
+  text-decoration: none;
+  font: 600 0.92rem/1.2 var(--font-sans);
+}
+
+.site-nav a:hover {
+  background: #1d1514;
+  color: #fff;
+}
+
+.site-nav a.active {
+  background: #6f1216;
+  color: #fff;
+}
+
+.lodge-toggle {
+  order: 2;
+  margin-left: auto;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid #4a3530;
+  border-radius: 999px;
+  background: #151010;
+  color: #efe4cc;
+  font: 600 0.8rem/1.2 var(--font-sans);
+  cursor: pointer;
+}
+
+.lodge-toggle:hover {
+  border-color: #8a6a5f;
+}
+
+.toggle-prefix {
+  display: none;
+}
+
+@media (min-width: 30rem) {
+  .toggle-prefix {
+    display: inline;
+  }
+}
+
+@media (min-width: 64rem) {
+  .site-nav {
+    order: 2;
+    flex: 1;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .lodge-toggle {
+    order: 3;
+    margin-left: 0;
+  }
+}
+
+.site-footer {
+  margin-top: 2rem;
+  background: #0b0808;
+  color: #cdbfa3;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 2.5rem;
+}
+
+.welcome-sign {
+  display: grid;
+  justify-items: center;
+  padding: 0.75rem 1.4rem;
+  border: 3px solid #6b4a2c;
+  border-radius: 10px 10px 4px 4px;
+  background: linear-gradient(180deg, #2f4a35, #1e3325);
+  color: #f1e6c9;
+  box-shadow:
+    inset 0 0 0 2px #10201a,
+    0 8px 20px -10px rgb(0 0 0 / 0.9);
+}
+
+.sign-welcome,
+.sign-population {
+  font: 700 0.65rem/1.4 var(--font-sans);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.sign-name {
+  font: 700 1.4rem/1.15 var(--font-serif);
+  letter-spacing: 0.05em;
+}
+
+.log-button {
+  padding: 0.3rem;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+}
+
+.log-button svg {
+  width: 72px;
+  height: 36px;
+}
+
+.log-button:hover svg {
+  transform: rotate(-4deg);
+}
+
+.bark {
+  fill: #6b4a2c;
+}
+
+.grain {
+  fill: none;
+  stroke: #4a3220;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.cut {
+  fill: #c9a26b;
+}
+
+.ring {
+  fill: none;
+  stroke: #8b6a3e;
+  stroke-width: 1.2;
+}
+
+.core {
+  fill: #8b6a3e;
+}
+
+.footer-text p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.footer-text .hint {
+  margin-top: 0.6rem;
+  font-style: italic;
+  color: #a8dcae;
+}
+
+/* Typing “fire walk with me” makes the lights flicker: two slow red flashes.
+   The filter goes on the page regions, not the host: a filtered ancestor would
+   become the containing block of the fixed overlay below and push it off-screen. */
+:host(.fire-walk) .site-header,
+:host(.fire-walk) main,
+:host(.fire-walk) .site-footer {
+  animation: fire-walk 1.6s linear;
+}
+
+.fire-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  font: 700 clamp(2rem, 8vw, 5rem) / 1 var(--font-serif);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ff3b30;
+  text-shadow: 0 0 30px rgb(255 59 48 / 0.7);
+  animation: fire-text 1.6s ease-out forwards;
+}
+
+@keyframes fire-walk {
+  0%,
+  30%,
+  60%,
+  100% {
+    filter: none;
+  }
+  12% {
+    filter: brightness(0.35) sepia(1) saturate(5) hue-rotate(-30deg);
+  }
+  45% {
+    filter: brightness(0.25) sepia(1) saturate(6) hue-rotate(-30deg);
+  }
+}
+
+@keyframes fire-text {
+  0% {
+    opacity: 0;
+  }
+  20%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 48rem) {
+  .footer-inner {
+    grid-template-columns: auto 1fr;
+  }
+
+  .footer-text {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .log-button:hover svg {
+    transform: none;
+  }
+}

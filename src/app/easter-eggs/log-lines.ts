@@ -1,0 +1,22 @@
+/** Lines from the Log Lady's introductions and her calls to Hawk. */
+export const LOG_LINES: readonly string[] = [
+  'Behind all things are reasons. Reasons can even explain the absurd.',
+  'Some ideas arrive in the form of a dream.',
+  'One day, the sadness will end.',
+  'I can see the smoke. I can smell the fire. The battle is drawing nigh.',
+  'I play my part on life’s stage.',
+  'In a dream, are all the characters really you?',
+  'What really is creamed corn? Is it a symbol for something else?',
+  'Balance is the key. Balance is the key to many things.',
+  'There is a depression after an answer is given. It was almost fun not knowing.',
+  'How many times have we heard: “it’s simple.” Nothing is simple.',
+  'We paint our future with every present brush stroke.',
+  'Is love the blood of the universe?',
+  'I love pie with coffee.',
+  'Our world is a magical smoke screen.',
+  'How long it takes to grow a tree!',
+  'My log hears things I cannot hear.',
+  'Where there was once one, there are now two. Or were there always two?',
+  'Laura is the one.',
+  'There’s fire where you are going.',
+];

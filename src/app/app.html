@@ -1,0 +1,80 @@
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="brand">
+    <app-owl />
+    <a class="brand-link" routerLink="/">
+      <span class="brand-title">Twin Peaks</span>
+      <span class="brand-sub">Breakdowns</span>
+    </a>
+  </div>
+
+  <nav class="site-nav" aria-label="Sections">
+    @for (section of sections; track section.id) {
+      <a [routerLink]="['/', section.id]" routerLinkActive="active" ariaCurrentWhenActive="page">
+        {{ section.title }}
+      </a>
+    }
+    <a routerLink="/key" routerLinkActive="active" ariaCurrentWhenActive="page">The Key</a>
+  </nav>
+
+  <button
+    type="button"
+    class="lodge-toggle"
+    (click)="theme.toggle()"
+    [attr.aria-label]="
+      theme.lodge() === 'black' ? 'Switch to the light theme' : 'Switch to the dark theme'
+    "
+  >
+    <span class="toggle-prefix">{{
+      theme.lodge() === 'black' ? 'Enter the' : 'Return to the'
+    }}</span>
+    {{ theme.lodge() === 'black' ? 'White Lodge' : 'Black Lodge' }}
+  </button>
+</header>
+
+<main id="main" tabindex="-1">
+  <router-outlet />
+</main>
+
+<footer class="site-footer">
+  <div class="zigzag" aria-hidden="true"></div>
+  <div class="footer-inner">
+    <div class="welcome-sign" role="img" aria-label="Welcome to Twin Peaks, population 51,201">
+      <span class="sign-welcome">Welcome to</span>
+      <span class="sign-name">Twin Peaks</span>
+      <span class="sign-population">Population 51,201</span>
+    </div>
+
+    <button
+      type="button"
+      class="log-button"
+      (click)="eggs.logMessage()"
+      aria-label="Ask the Log Lady’s log for a message"
+      title="My log has a message for you"
+    >
+      <svg viewBox="0 0 64 32" aria-hidden="true">
+        <rect x="4" y="7" width="46" height="18" rx="9" class="bark" />
+        <path d="M12 12h18M18 20h22M34 11h8" class="grain" />
+        <ellipse cx="50" cy="16" rx="7" ry="9" class="cut" />
+        <ellipse cx="50" cy="16" rx="4" ry="5.5" class="ring" />
+        <circle cx="50" cy="16" r="1.4" class="core" />
+      </svg>
+    </button>
+
+    <div class="footer-text">
+      <p>
+        Breakdowns built from Twin Perfect’s video essays — the main explainer, the follow-up and
+        Responding to Critics — with other YouTube theorists as labelled extras, all checked against
+        the scripts and transcripts. A fan project; Twin Peaks belongs to its creators.
+      </p>
+      <p class="hint">The owls are not what they seem. Neither is this website.</p>
+    </div>
+  </div>
+</footer>
+
+<app-toast-stack />
+
+@if (eggs.flickering()) {
+  <div class="fire-overlay" aria-hidden="true">Fire walk with me</div>
+}

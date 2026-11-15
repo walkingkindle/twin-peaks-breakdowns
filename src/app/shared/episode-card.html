@@ -1,0 +1,136 @@
+@let ep = episode();
+<article
+  class="episode"
+  [id]="ep.id"
+  [class.is-lynch]="ep.lynch === 'directed'"
+  [attr.aria-labelledby]="ep.id + '-title'"
+>
+  <header>
+    <p class="episode-label">
+      {{ ep.label }}
+      @if (ep.overall) {
+        <span class="overall">· Episode {{ ep.overall }} overall</span>
+      }
+    </p>
+    <h2 class="episode-title" [id]="ep.id + '-title'">
+      @if (isDoppelganger()) {
+        <span class="doppelganger" title="How’s Annie?">{{ ep.title }}</span>
+      } @else {
+        {{ ep.title }}
+      }
+    </h2>
+    @if (ep.altTitle) {
+      <p class="alt-title">also known as “{{ ep.altTitle }}”</p>
+    }
+    @if (ep.lynch === 'directed') {
+      <p class="badge badge-lynch">Directed by David Lynch</p>
+    } @else if (ep.lynch === 'absent') {
+      <p class="badge badge-absent" title="This is the chair.">Lynch absent</p>
+    }
+  </header>
+
+  <section class="story" [attr.aria-labelledby]="ep.id + '-story'">
+    <h3 class="kicker" [id]="ep.id + '-story'">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path class="steam" d="M12 4c-2 2 2 3 0 6M17 3c-2 2 2 3 0 6" />
+        <path d="M6 13h17v6a7 7 0 0 1-7 7h-3a7 7 0 0 1-7-7z" fill="currentColor" />
+        <path d="M23 15h2a3 3 0 0 1 0 6h-2" />
+      </svg>
+      The story
+    </h3>
+    <p class="summary">{{ ep.summary }}</p>
+  </section>
+
+  @if (ep.logLady) {
+    <figure class="log-lady">
+      <blockquote>
+        <p>{{ ep.logLady }}</p>
+      </blockquote>
+      <figcaption>The Log Lady’s introduction</figcaption>
+    </figure>
+  }
+
+  <section class="clues" [attr.aria-labelledby]="ep.id + '-clues'">
+    <h3 class="kicker" [id]="ep.id + '-clues'">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="13" cy="13" r="8" />
+        <path d="M19 19l8 8" />
+      </svg>
+      Clues &amp; breakdown
+    </h3>
+    @for (group of groups(); track $index) {
+      @if (group.segment) {
+        <h4 class="segment">{{ group.segment }}</h4>
+      }
+      <ol class="points">
+        @for (point of group.points; track $index) {
+          <li class="point">
+            <p class="point-title" role="heading" [attr.aria-level]="hasSegments() ? 5 : 4">
+              {{ point.title }}
+            </p>
+            <p class="moment">{{ point.moment }}</p>
+            @if (point.quote) {
+              <blockquote class="quote">
+                <p>{{ point.quote }}</p>
+              </blockquote>
+            }
+            <p class="reading">
+              @if (isApplied(point)) {
+                <span class="reading-label applied">Applying the key</span>
+              } @else {
+                <span class="reading-label">Twin Perfect’s reading</span>
+              }
+              {{ point.reading }}
+            </p>
+            <app-source-badges [sources]="point.sources" />
+          </li>
+        }
+      </ol>
+    }
+  </section>
+
+  @if (ep.extras?.length) {
+    <section class="others" [attr.aria-labelledby]="ep.id + '-others'">
+      <h3 class="kicker" [id]="ep.id + '-others'">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="11" cy="16" r="6" />
+          <circle cx="21" cy="16" r="6" />
+          <circle class="solid" cx="11" cy="16" r="2" />
+          <circle class="solid" cx="21" cy="16" r="2" />
+        </svg>
+        Other theories
+      </h3>
+      <ol class="points">
+        @for (extra of ep.extras; track $index) {
+          <li class="point other">
+            <p class="point-title" role="heading" aria-level="4">{{ extra.title }}</p>
+            <p class="moment">{{ extra.moment }}</p>
+            @if (extra.quote) {
+              <blockquote class="quote">
+                <p>{{ extra.quote }}</p>
+              </blockquote>
+            }
+            <p class="reading">
+              <span class="reading-label other">{{ extra.theorist }}’s reading</span>
+              {{ extra.reading }}
+            </p>
+            <p class="extra-meta">
+              <a
+                class="theorist-badge"
+                [href]="'https://youtu.be/' + extra.video"
+                target="_blank"
+                rel="noopener"
+                [title]="extra.videoTitle"
+              >
+                {{ extra.theorist }} · watch ↗
+              </a>
+              @if (extra.disagrees) {
+                <span class="disagrees">Disagrees with Twin Perfect</span>
+              }
+            </p>
+          </li>
+        }
+      </ol>
+    </section>
+  }
+</article>

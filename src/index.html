@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Twin Peaks Breakdowns</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Episode breakdowns of Twin Peaks, Fire Walk With Me and The Return, decoded with the clues from Twin Perfect's explainers.">
+  <meta name="theme-color" content="#0c0909">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <script>
+    // Apply the remembered Lodge before Angular boots, so the White Lodge doesn't flash dark.
+    try {
+      if (localStorage.getItem('twin-peaks-lodge') === 'white') {
+        document.documentElement.dataset.lodge = 'white';
+      }
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

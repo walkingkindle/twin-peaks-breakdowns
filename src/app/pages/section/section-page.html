@@ -1,0 +1,59 @@
+@if (data(); as section) {
+  <header class="page-hero curtain">
+    <p class="eyebrow">{{ section.years }}</p>
+    <h1>{{ section.title }}</h1>
+    <p class="intro">{{ section.intro }}</p>
+  </header>
+  <div class="zigzag" aria-hidden="true"></div>
+
+  <div class="layout" [class.has-toc]="section.episodes.length > 1">
+    @if (section.episodes.length > 1) {
+      <nav class="toc" [attr.aria-label]="'Episodes in ' + section.title">
+        <p class="toc-title">Jump to</p>
+        <ol>
+          @for (episode of section.episodes; track episode.id) {
+            <li>
+              <a [routerLink]="[]" [fragment]="episode.id">
+                <span class="toc-label">{{ shortLabel(episode) }}</span>
+                <span class="toc-name">{{ episode.title }}</span>
+              </a>
+            </li>
+          }
+        </ol>
+      </nav>
+    }
+
+    <div class="episodes">
+      @for (episode of section.episodes; track episode.id) {
+        <app-episode-card [episode]="episode" />
+      }
+    </div>
+  </div>
+
+  <nav class="pager" aria-label="Other sections">
+    @if (previous(); as prev) {
+      <a class="pager-link" [routerLink]="['/', prev.id]">
+        <span class="pager-hint">← Previously</span>
+        <span class="pager-title">{{ prev.title }}</span>
+      </a>
+    } @else {
+      <span></span>
+    }
+    @if (next(); as nextSection) {
+      <a class="pager-link pager-next" [routerLink]="['/', nextSection.id]">
+        <span class="pager-hint">Next →</span>
+        <span class="pager-title">{{ nextSection.title }}</span>
+      </a>
+    } @else {
+      <a class="pager-link pager-next" routerLink="/key">
+        <span class="pager-hint">Back to →</span>
+        <span class="pager-title">The Key</span>
+      </a>
+    }
+  </nav>
+} @else {
+  <section class="missing">
+    <h1>This section is not what it seems.</h1>
+    <p><a routerLink="/">Return to Twin Peaks</a></p>
+  </section>
+}
