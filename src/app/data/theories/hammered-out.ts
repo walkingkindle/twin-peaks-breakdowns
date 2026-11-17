@@ -80,6 +80,15 @@ export const HAMMERED_OUT: Theorist = {
         'The Major speaks as one of Bobby’s creators. The light from within is a TV set, and the new rooms that blend in seamlessly are the other writers reshaping the show. Bobby turns good because his creator wants him to: a one-dimensional bad boy can’t stay one-dimensional in a show this deep. In The Return the vision has come true, and Bobby is an honest cop.',
     },
     {
+      episode: 's2e04',
+      video: WHO_KILLED,
+      title: 'The literate audience',
+      moment:
+        'Harold reads Donna a passage from Laura’s diary. When she asks whether it is evidence for the sheriff, he refuses: he has read it cover to cover, and there are no solutions in it.',
+      reading:
+        'Characters stand for kinds of audience: Jacoby wants dark trash, James a happy girl, and Harold, the literate viewer, gets the complex Laura in his books. As evidence, her diary would shrink into a pedestrian murder mystery, so he resists. When he can’t, he dies: once his entertainment stops existing, his kind of audience has no place in the story.',
+    },
+    {
       episode: 's2e07',
       video: WHO_KILLED,
       title: 'Bob kills whoever changes their part',

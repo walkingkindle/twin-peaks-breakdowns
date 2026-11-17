@@ -225,7 +225,7 @@ export const SEASON_2: Section = {
       title: 'Laura’s Secret Diary',
       overall: 11,
       summary:
-        'Leland confesses to killing Jacques Renault. Jean Renault holds Audrey captive at One-Eyed Jack’s and sends Ben a ransom tape. Harold reads Donna passages from Laura’s secret diary in exchange for stories of her own, and Josie’s menacing “cousin” Jonathan arrives in town.',
+        'Leland confesses to killing Jacques Renault. Jean Renault holds Audrey captive at One-Eyed Jack’s and sends Ben a ransom tape. Harold reads Donna a passage from Laura’s secret diary but won’t hand it to the sheriff, and Josie’s menacing “cousin” Jonathan arrives in town.',
       logLady:
         'Anger is an emotion, usually classified as a negative emotion. Negative emotions can cause severe problems in our environment and to the health of our body.',
       points: [
@@ -239,7 +239,7 @@ export const SEASON_2: Section = {
         {
           title: 'A living novel',
           moment:
-            'Harold won’t lend Donna the diary, but he trades: a passage of Laura’s for a story from Donna’s life.',
+            'Harold explains why Laura trusted him with her diary: people bring him their stories, and he places them in a larger context. Maybe someday, he tells Donna, she will too.',
           quote: 'A sort of living novel.',
           reading:
             'Harold collects other people’s lives and places them in a larger context — the perfect image of a viewer living through the screen. Laura’s mystery is the story he can’t live without.',
@@ -261,7 +261,7 @@ export const SEASON_2: Section = {
       title: 'The Orchid’s Curse',
       overall: 12,
       summary:
-        'Cooper and Truman slip across the border, raid One-Eyed Jack’s and rescue Audrey, while Jean Renault kills Blackie and escapes. Leland faces a bail hearing. Donna and Maddy fake an emergency to steal Laura’s secret diary from Harold Smith, and Harold catches them in the act.',
+        'Cooper and Truman slip across the border, raid One-Eyed Jack’s and rescue Audrey, while Jean Renault kills Blackie and escapes. Leland faces a bail hearing. Donna strikes a bargain with Harold Smith — her stories for Laura’s secret diary — then keeps him busy while Maddy steals it, and Harold catches them.',
       logLady:
         'Sometimes nature plays tricks on us and we imagine we are something other than what we truly are… the two-headed schizophrenic? Both heads thought the other was following itself. Finally, when one head wasn’t looking, the other shot the other right between the eyes, and, of course, killed himself.',
       points: [
@@ -273,12 +273,39 @@ export const SEASON_2: Section = {
           sources: ['applied'],
         },
         {
+          title: 'Maybe our dreams are real',
+          moment:
+            'Trading stories for the diary, Harold admits he grew up in books, and that we dream what we can’t find anywhere might be found in other people. Donna answers him.',
+          quote: 'Maybe our dreams are real.',
+          reading:
+            'Twin Perfect cuts this line into his roll call of characters who don’t know they’re TV characters but feel, deep down, that they might be living a TV dream. It comes right after the sawmill: sawing logs means snoring, and Twin Peaks is a dream.',
+          sources: ['main'],
+        },
+        {
+          title: 'Afraid of the light',
+          moment:
+            'Donna snatches the diary and steps out onto the lawn. Harold follows her to the doorway, looks up at the sky, shakes and collapses, clutching the diary to his chest.',
+          quote: 'Come on, what’s there to be afraid of?',
+          reading:
+            'Twin Perfect’s Harold is afraid of light, and here the episode stages it: Laura’s story is carried out of his dim room into daylight, and he can’t follow it. In the draft he kisses Donna afterwards; the aired cut ends on what he really holds on to — not Donna, but the diary.',
+          sources: ['followUp', 'applied'],
+        },
+        {
           title: 'Are you looking for secrets?',
           moment: 'Harold catches Donna and Maddy trying to steal the diary and turns on them.',
           quote: 'Are you looking for secrets?',
           reading:
             'Amateur investigators try to steal Laura’s story from the man who lives on it, and it will kill him. He is possessed by fear of losing Laura’s mystery.',
           sources: ['followUp'],
+        },
+        {
+          title: 'The ultimate secret',
+          moment:
+            'Holding a gardening fork, Harold offers the girls the secret Laura wanted, then drags the fork down his own face.',
+          quote: 'The secret of knowing who killed you.',
+          reading:
+            'The ultimate secret is the answer to the show’s own question, and the man who lives on the mystery cuts his face for it. Two episodes later the hunt has cost Harold his life, and the answer arrives with Maddy’s murder. The secret everyone chases is a wound, not a cure.',
+          sources: ['applied'],
         },
       ],
     },
